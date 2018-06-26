@@ -295,7 +295,7 @@ listenIp = "0.0.0.0"
 listenPort = 123
 socket = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
 socket.bind((listenIp,listenPort))
-print "local socket: ", socket.getsockname();
+print "Starting NTP Server.....", socket.getsockname();
 recvThread = RecvThread(socket)
 recvThread.start()
 workThread = WorkThread(socket)
@@ -305,11 +305,9 @@ while True:
     try:
         time.sleep(0.5)
     except KeyboardInterrupt:
-        print "Exiting..."
         stopFlag = True
         recvThread.join()
         workThread.join()
         #socket.close()
-        print "Exited"
         break
         
