@@ -1,0 +1,13 @@
+{
+  "name": "NTP Server",
+  "version": "1.0",
+  "slug": "ntp_server",
+  "description": "A simple NTP Server",
+  "startup": "before",
+  "boot": "auto",
+  "options": {},
+  "schema": {},
+  "ports": {
+    "123/udp": 123
+  }
+}
