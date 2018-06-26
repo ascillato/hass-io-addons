@@ -3,6 +3,7 @@
   "version": "1.0",
   "slug": "ntp_server",
   "description": "A simple NTP Server",
+  "url": "https://github.com/ascillato/hass-io-addons",
   "startup": "before",
   "boot": "auto",
   "options": {},
