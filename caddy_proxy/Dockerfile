@@ -17,7 +17,7 @@ RUN apk add --no-cache -U --virtual .build-deps \
 	python3-dev \
  && pip3 install -U pip \
  && pip install pystache \
- && CADDY_VERSION=v${BUILD_VERSION%-*} \
+ && CADDY_VERSION=v${BUILD_VERSION} \
  && if [ ${BUILD_ARCH} == "armhf" ]; then caddyarch=arm7;\
     elif [ ${BUILD_ARCH} == "amd64" ]; then caddyarch=amd64;\
     elif [ ${BUILD_ARCH} == "i386" ]; then caddyarch=386;\
