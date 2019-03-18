@@ -19,11 +19,12 @@ RUN apk add --no-cache -U --virtual .build-deps \
  && pip install pystache \
  && CADDY_VERSION=v${BUILD_VERSION} \
  && if [ ${BUILD_ARCH} == "armhf" ]; then caddyarch=arm7;\
+		elif [ ${BUILD_ARCH} == "armv7" ]; then caddyarch=arm7;\
     elif [ ${BUILD_ARCH} == "amd64" ]; then caddyarch=amd64;\
     elif [ ${BUILD_ARCH} == "i386" ]; then caddyarch=386;\
     elif [ ${BUILD_ARCH} == "aarch64" ]; then caddyarch=arm64;\
     fi \
- && caddyurl=https://github.com/mholt/caddy/releases/download/v0.11.5/caddy_v0.11.5_linux_arm7.tar.gz \
+ && caddyurl=https://github.com/mholt/caddy/releases/download/${CADDY_VERSION}/caddy_${CADDY_VERSION}_linux_${caddyarch}.tar.gz \
  && echo $caddyurl \
  && curl --silent --show-error --fail --location --header "Accept: application/tar+gzip, application/x-gzip, application/octet-stream" -o - \
       "$caddyurl" \
